@@ -67,12 +67,12 @@ class Help:
     def __init__(self):
 
         #help button
-        help_button_font = font.Font(family = 'Verdana', size = 12)
+        help_button_font = font.Font(family="Verdana", size=12)
         background = "#002564"
         self.help_box = Toplevel()
         self.help_box.title("Instructions")
-        self.help_frame = Frame(self.help_box, width = 300, height = 200,
-                                bg = background)
+        self.help_frame = Frame(self.help_box, width=300, height=200,
+                                bg=background)
         self.help_frame.grid()
 
         # Image logo (row 0)
@@ -104,13 +104,12 @@ class Help:
                                "the show all jobs button will be disabled please fix any mistakes using the"
                                "prompts and enter a valid job to enable the button again if you wish to see"
                                "the jobs you have entered.",
-                               justify = LEFT, width = 40,
-                               bg = background, wrap = 250, fg = 'white')
+                               justify=LEFT, width=40,
+                               bg=background, wrap=250, fg="white")
         self.help_text.grid(column = 0, row = 2)
-        dismiss_button = Button(self.help_frame, text = "Dismiss", width = 10,
-                                highlightbackground = "#002564", command = self.close_help, fg = '#002564')
-        dismiss_button['font'] = help_button_font
-        dismiss_button.grid(row = 3, pady = 10)
+        dismiss_button = Button(self.help_frame, text = "Dismiss", width=10,
+                                highlightbackground="#002564", command=self.close_help, fg="#002564", font=help_button_font)
+        dismiss_button.grid(row=3, pady=10)
 
     def close_help(self):
         self.help_box.destroy()
@@ -136,11 +135,11 @@ class Enter_Jobs:
         self.wof_var.set(" ")
 
         #font size and colour used throughout program
-        entry_font = font.Font(family = 'Verdana', size = 15)
-        summary_font = font.Font(family = 'Verdana', size = 17)
-        button_font = font.Font(family = 'Verdana', size = 18)
-        error_font = font.Font(family = 'Verdana', size = 12)
-        help_button_font = font.Font(family = 'Verdana', size = 12)
+        entry_font = font.Font(family = "Verdana", size=15)
+        summary_font = font.Font(family = "Verdana", size=17)
+        button_font = font.Font(family = "Verdana", size=18)
+        error_font = font.Font(family = "Verdana", size=12)
+        help_button_font = font.Font(family = "Verdana", size=12)
 
         #heading frame
         # GUI 
@@ -162,7 +161,7 @@ class Enter_Jobs:
 
         # Input Message (row 1)
         self.input_message = Label(self.heading_frame, text="Please Input...",
-                                     font="Verdana 20 bold ",
+                                     font="Verdana 20 bold",
                                      justify=CENTER,
                                      padx=20, pady=20,
                                      wrap=275, bg=background)
@@ -179,64 +178,64 @@ class Enter_Jobs:
         self.summary_frame = Frame(root, bg=background)
 
         #labels of details for each customer
-        self.job_label = Label(self.entry_frame, text = "Job Number:", bg=background, fg=text_colour, padx = 10, font=entry_font)
-        self.job_label.grid(row = 2, column = 0, sticky = W)
+        self.job_label = Label(self.entry_frame, text = "Job Number:", bg=background, fg=text_colour, padx=10, font=entry_font)
+        self.job_label.grid(row=2, column=0, sticky=W)
         
-        self.name_label = Label(self.entry_frame, text = "Customer Name:", bg=background, fg=text_colour, padx = 10, font=entry_font)
-        self.name_label.grid(row = 3, column = 0, sticky = W)
+        self.name_label = Label(self.entry_frame, text = "Customer Name:", bg=background, fg=text_colour, padx=10, font=entry_font)
+        self.name_label.grid(row=3, column=0, sticky=W)
         
-        self.distance_label = Label(self.entry_frame, text = "Distance Travelled to Customer (km):", bg=background, fg=text_colour, padx = 10, font=entry_font)
-        self.distance_label.grid(row = 4, column = 0, sticky = W)
+        self.distance_label = Label(self.entry_frame, text = "Distance Travelled to Customer (km):", bg=background, fg=text_colour, padx=10, font=entry_font)
+        self.distance_label.grid(row=4, column=0, sticky=W)
         
-        self.time_label = Label(self.entry_frame, text = "Time Spent on Virus Protection (min):", bg=background, fg=text_colour, padx = 10, font=entry_font)
-        self.time_label.grid(row = 5, column = 0, sticky = W)
+        self.time_label = Label(self.entry_frame, text = "Time Spent on Virus Protection (min):", bg=background, fg=text_colour, padx=10, font=entry_font)
+        self.time_label.grid(row=5, column=0, sticky=W)
         
-        self.wof_label = Label(self.entry_frame, text = "WOF and Tune:", bg=background, fg=text_colour, padx = 10, font=entry_font)
-        self.wof_label.grid(row = 6, column = 0, sticky = W)
+        self.wof_label = Label(self.entry_frame, text = "WOF and Tune:", bg=background, fg=text_colour, padx=10, font=entry_font)
+        self.wof_label.grid(row=6, column=0, sticky=W)
 
         #entry boxes for details
         self.job_num_label = Label(self.entry_frame, text = self.job_number, bg=background, highlightbackground=background, fg=text_colour, font=entry_font)
-        self.job_num_label.grid(row = 2, column = 1, sticky = W)
+        self.job_num_label.grid(row=2, column=1, sticky=W)
         
         self.name_entry = Entry(self.entry_frame, bg=background, highlightbackground=background, fg=text_colour, font=entry_font)
-        self.name_entry.grid(row = 3, column = 1, sticky = W)
+        self.name_entry.grid(row=3, column=1, sticky=W)
         
         self.distance_entry = Entry(self.entry_frame, bg=background, highlightbackground=background, fg=text_colour, font=entry_font)
-        self.distance_entry.grid(row = 4, column = 1, sticky = W)
+        self.distance_entry.grid(row=4, column=1, sticky=W)
         
         self.time_entry = Entry(self.entry_frame, bg=background, highlightbackground=background, fg=text_colour, font=entry_font)
-        self.time_entry.grid(row = 5, column = 1, sticky = W)
+        self.time_entry.grid(row=5, column=1, sticky=W)
 
         #error messages for entry by users
-        self.name_entry_error = Label(self.entry_frame, text = "", bg=background, fg = 'red', padx = 10, font=error_font)
-        self.name_entry_error.grid(row = 3, column = 2, sticky = W)
+        self.name_entry_error = Label(self.entry_frame, text = "", bg=background, fg="red", padx=10, font=error_font)
+        self.name_entry_error.grid(row=3, column=2, sticky=W)
         
-        self.distance_entry_error = Label(self.entry_frame, text = "", bg=background, fg = 'red', padx = 10, font=error_font)
-        self.distance_entry_error.grid(row = 4, column = 2, sticky = W)
+        self.distance_entry_error = Label(self.entry_frame, text = "", bg=background, fg="red", padx=10, font=error_font)
+        self.distance_entry_error.grid(row=4, column=2, sticky=W)
         
-        self.time_entry_error = Label(self.entry_frame, text = "", bg=background, fg = 'red', padx = 10, font=error_font)
-        self.time_entry_error.grid(row = 5, column = 2, sticky = W)
+        self.time_entry_error = Label(self.entry_frame, text = "", bg=background, fg="red", padx=10, font=error_font)
+        self.time_entry_error.grid(row=5, column=2, sticky=W)
         
-        self.wof_entry_error = Label(self.entry_frame, text = "", bg=background, fg = 'red', padx = 10, font=error_font)
-        self.wof_entry_error.grid(row = 6, column = 2, sticky = W)
+        self.wof_entry_error = Label(self.entry_frame, text = "", bg=background, fg = 'red', padx=10, font=error_font)
+        self.wof_entry_error.grid(row=6, column=2, sticky=W)
         
-        self.one_service_error = Label(self.entry_frame, text = "", bg=background, fg = 'red', padx = 10, font=error_font)
-        self.one_service_error.grid(row = 7, column=0, padx=10)
+        self.one_service_error = Label(self.entry_frame, text = "", bg=background, fg="red", padx=10, font=error_font)
+        self.one_service_error.grid(row=7, column=0, padx=10)
         
         #radio buttons for whether user wants wof and tune
-        self.yes_wof_radiobutton = Radiobutton(self.entry_frame, variable = self.wof_var, value = 'YES', anchor = W, text = "YES",
+        self.yes_wof_radiobutton = Radiobutton(self.entry_frame, variable = self.wof_var, value = "YES", anchor=W, text="YES",
                                                bg=background, fg=text_colour, font=entry_font)
-        self.yes_wof_radiobutton.grid(row = 6, column = 1, sticky = W, columnspan = 1, pady = 10, padx = 10)
+        self.yes_wof_radiobutton.grid(row=6, column=1, sticky=W, columnspan=1, pady=10, padx=10)
         
-        self.no_wof_radiobutton = Radiobutton(self.entry_frame, variable = self.wof_var, value = 'NO', anchor = E, text = "NO",
+        self.no_wof_radiobutton = Radiobutton(self.entry_frame, variable = self.wof_var, value ="'NO", anchor=E, text="NO",
                                               bg=background, fg=text_colour, font=entry_font)
-        self.no_wof_radiobutton.grid(row = 6, column = 1, sticky = E, padx = 10)
+        self.no_wof_radiobutton.grid(row=6, column=1, sticky=E, padx=10)
 
 
         #buttons to enter a job and show all jobs
         self.enter_job_btn = Button(self.entry_frame, text = "Enter Job", command = self.enter_job, highlightbackground=background, fg=text_colour, font=button_font,
                                     borderwidth=2)
-        self.enter_job_btn.grid(row = 7, column=1, sticky = E, pady=10, padx=10)
+        self.enter_job_btn.grid(row=7, column=1, sticky=E, pady=10, padx=10)
 
         # bottom buttons frame
         self.button_frame = Frame(root, bg=background)
@@ -248,7 +247,7 @@ class Enter_Jobs:
         
         self.help_btn = Button(self.button_frame, text = "Help", command = self.help, highlightbackground="lightGrey", fg=text_colour, font=button_font,
                                borderwidth=2)
-        self.help_btn.grid(row=9, column=2, sticky = E, pady = 10, padx = 10)
+        self.help_btn.grid(row=9, column=2, sticky=E, pady=10, padx=10)
 
         self.quit_button = Button(self.button_frame, text="Quit", command=self.quit, borderwidth=2, highlightbackground="maroon", fg=text_colour, font=button_font)
         self.quit_button.grid(row=9, column=0, pady=10, padx=10, sticky=W)
@@ -266,43 +265,43 @@ class Enter_Jobs:
 
         #showing logo image
         self.logo = Label(self.summary_frame, image = self.logo_img_summary, padx = 10, pady = 10, bg=background)
-        self.logo.grid(columnspan = 2)
+        self.logo.grid(columnspan=2)
 
         #titles of details for each customer
-        self.job_label_summary = Label(self.summary_frame, text = "Job Number:", bg=background, fg=text_colour, padx = 10, pady = 10, font=summary_font)
-        self.job_label_summary.grid(row = 1, column = 0, sticky = W)
+        self.job_label_summary = Label(self.summary_frame, text = "Job Number:", bg=background, fg=text_colour, padx=10, pady=10, font=summary_font)
+        self.job_label_summary.grid(row=1, column=0, sticky=W)
         
-        self.name_label = Label(self.summary_frame, text = "Customer Name:", bg=background, fg=text_colour, padx = 10, pady = 10, font=summary_font)
-        self.name_label.grid(row = 2, column = 0, sticky = W)
+        self.name_label = Label(self.summary_frame, text = "Customer Name:", bg=background, fg=text_colour, padx=10, pady=10, font=summary_font)
+        self.name_label.grid(row=2, column=0, sticky=W)
         
-        self.job_charge_label = Label(self.summary_frame, text = "Job Charge ($):", bg=background, fg=text_colour, padx = 10, pady = 10, font=summary_font)
-        self.job_charge_label.grid(row = 3, column = 0, sticky = W)
+        self.job_charge_label = Label(self.summary_frame, text = "Job Charge ($):", bg=background, fg=text_colour, padx=10, pady=10, font=summary_font)
+        self.job_charge_label.grid(row=3, column=0, sticky=W)
         
         
         #details of each customer
-        self.job_num_output = Label(self.summary_frame, text = (self.job_number), bg=background, fg=text_colour, padx = 10, pady = 10, font=summary_font)
-        self.job_num_output.grid(row = 1, column = 1, sticky = W)
+        self.job_num_output = Label(self.summary_frame, text = (self.job_number), bg=background, fg=text_colour, padx=10, pady=10, font=summary_font)
+        self.job_num_output.grid(row=1, column=1, sticky=W)
         
-        self.name_output = Label(self.summary_frame, text = " ", bg=background, fg=text_colour, padx = 10, pady = 10, font=summary_font)
-        self.name_output.grid(row = 2, column = 1, sticky = W)
+        self.name_output = Label(self.summary_frame, text = " ", bg=background, fg=text_colour, padx=10, pady=10, font=summary_font)
+        self.name_output.grid(row=2, column=1, sticky=W)
         
-        self.job_charge_output = Label(self.summary_frame, text = "Not Calculated", bg=background, fg=text_colour, padx = 10, pady = 10, font=summary_font)
-        self.job_charge_output.grid(row = 3, column = 1, sticky = W)
+        self.job_charge_output = Label(self.summary_frame, text = "Not Calculated", bg=background, fg=text_colour, padx=10, pady=10, font=summary_font)
+        self.job_charge_output.grid(row=3, column=1, sticky=W)
          
 
         #previous and next buttons
-        self.previous_btn = Button(self.summary_frame, text = "Previous", command = self.previous_btn, highlightbackground=background, fg=text_colour, padx = 10,
+        self.previous_btn = Button(self.summary_frame, text = "Previous", command = self.previous_btn, highlightbackground=background, fg=text_colour, padx=10,
                                    font=button_font)
-        self.previous_btn.grid(row = 5, column = 0, sticky = W, pady = 10, padx = 10)
+        self.previous_btn.grid(row=5, column=0, sticky=W, pady=10, padx=10)
         
-        self.next_btn = Button(self.summary_frame, text = "Next", command = self.next_btn, state = DISABLED, highlightbackground=background, fg=text_colour, padx = 10,
+        self.next_btn = Button(self.summary_frame, text = "Next", command = self.next_btn, state = DISABLED, highlightbackground=background, fg=text_colour, padx=10,
                                font=button_font)
-        self.next_btn.grid(row = 5, column = 1, sticky = E, pady = 10, padx = 10)
+        self.next_btn.grid(row=5, column=1, sticky=E, pady=10, padx=10)
             
         #back button
-        self.back_btn = Button(self.summary_frame, text = "Back", command = self.back_btn, highlightbackground=background, fg=text_colour, padx = 10, font=button_font,
+        self.back_btn = Button(self.summary_frame, text = "Back", command = self.back_btn, highlightbackground=background, fg=text_colour, padx=10, font=button_font,
                                width=45)
-        self.back_btn.grid(row = 6, columnspan=3, sticky = S, pady = 10, padx = 10)
+        self.back_btn.grid(row=6, columnspan=3, sticky=S, pady=10, padx=10)
 
 
         #if the user enters only one job both buttons are disabled
@@ -522,8 +521,6 @@ if __name__ == "__main__":
     root = Tk()
     #if the frame is extended the background stays blue
     root.config(bg="white")
-    root.grid_rowconfigure(0, weight=1)
-    root.grid_columnconfigure(0, weight=1)
     root.title("Suzy's Mobile Computer Repairs")
     radiobuttons = Start(root)
     root.mainloop()

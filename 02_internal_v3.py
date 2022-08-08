@@ -95,6 +95,21 @@ class Start:
                                        command=self.check_input)
         self.add_job_button.grid(row=7)
 
+        # View all jobs
+        self.view_jobs = Button(self.entry_error_frame,
+                                font="Arial 18 bold",
+                                command=lambda: View_jobs(self))
+        self.view_jobs.grid(row=8, column=2, pady=10)
+
+        # Quit button
+        self.quit_button = Button(self.entry_error_frame, text="Quit", fg="black",
+                                  highlightbackground="#660000", font="Arial 15 bold", width=20,
+                                  command=self.to_quit, padx=10, pady=10)
+        self.quit_button.grid(row=8, column=0, pady=10)
+
+    def to_quit(self):
+        root.destroy()
+
         
 
     def check_input(self):
@@ -186,7 +201,29 @@ class Start:
             self.wof_tune_entry.delete(0, 'end')
             self.customer_name_entry.delete(0, 'end')
 
+class View_jobs:
+    def __init__(self, partner):
 
+        
+        # GUI to get starting balalnce and stakes
+        self.view_frame = Frame(padx=10, pady=10)
+        self.view_frame.grid()
+
+        # Image logo (row 0)
+        photo = PhotoImage(file="logo3.png")
+        self.logo_label = Label(self.view_frame,
+                                image=photo, padx=10, pady=10,
+                                justify=CENTER)
+        self.logo_label.photo = photo
+        self.logo_label.grid(row=0)
+
+        # Input Message (row 1)
+        self.input_message = Label(self.view_frame, text="Please Input...",
+                                     font="Arial 25 bold ",
+                                     justify=CENTER,
+                                     padx=40, pady=40,
+                                     wrap=275)
+        self.input_message.grid(row=1)
 
 
 # main routine
@@ -200,7 +237,7 @@ if __name__ == "__main__":
     wof_tune = []
     
     root = Tk()
-    root.title("Mystery Box Game!")
+    root.title("Suzy's Mobile Service")
     something = Start(root)
     root.mainloop()
 

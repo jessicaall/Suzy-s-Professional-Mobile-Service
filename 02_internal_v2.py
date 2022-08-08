@@ -99,13 +99,13 @@ class Input:
             self.start_amount_entry = Entry(self.entry_error_frame, font="Arial 18 ", width=10)
             self.start_amount_entry.grid(row=row_no, column=1)
             item = self.start_amount_entry.get()
-            if row_no = 0:
+            if row_no == 0:
                 job_number.append(item)
 
-            elif row_no = 1:
+            elif row_no == 1:
                 customer_name.append(item)
 
-            elif row_no = 2:
+            elif row_no == 2:
                 dist_travelled.append(item)
 
             

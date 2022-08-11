@@ -101,7 +101,7 @@ class Help:
                                "No entry box can be blank, if you do not want the virus protection service"
                                "please enter 0 in the entry box."
                                "To close the program, press 'Quit'. If you try to enter an invalid job,"
-                               "the show all jobs button will be disabled please fix any mistakes using the"
+                               "the show all jobs button will be disabled, please fix any mistakes using the"
                                "prompts and enter a valid job to enable the button again if you wish to see"
                                "the jobs you have entered.",
                                justify=LEFT, width=40,
@@ -469,7 +469,7 @@ class Enter_Jobs:
             self.previous_btn.configure(state = DISABLED)
         self.next_btn.configure(state = NORMAL)
 
-        #easier to change the job number in function rather than when it is initialized
+        #easier to change the job number in function rather than when it is initialised
         self.job_num_output.configure(text = self.jobs[self.counter].job)
         self.name_output.configure(text = self.jobs[self.counter].name)
         self.job_charge_output.configure(text = self.jobs[self.counter].charge)
@@ -484,7 +484,7 @@ class Enter_Jobs:
             self.next_btn.configure(state = DISABLED)
         self.previous_btn.configure(state = NORMAL)
 
-        #easier to change the job number in function rather than when it is initialized
+        #easier to change the job number in function rather than when it is initialised
         self.job_num_output.configure(text = self.jobs[self.counter].job)
         self.name_output.configure(text = self.jobs[self.counter].name)
         self.job_charge_output.configure(text = self.jobs[self.counter].charge)
@@ -499,19 +499,7 @@ class Enter_Jobs:
 
     def help(self):
         get_help = Help()
-        get_help.help_text.configure(text = "Suzy's Mobile Computer Service Help\n"
-                                     "\n"
-                                     "Please enter the details of the you would like to enter."
-                                     "Then press the 'Add Job' button to save the job."
-                                     "You can then show all entered jobs by pressing the 'Show All Jobs' button."
-                                     "The job must include at least one service, either a WOF and Tune or Virus Protection,"
-                                     "so please make sure that one of these has been entered or selected."
-                                     "No entry box can be blank, if you do not want the virus protection service"
-                                     "please enter 0 in the entry box."
-                                     "To close the program, press 'Quit'. If you try to enter an invalid job,"
-                                     "the show all jobs button will be disabled please fix any mistakes using the"
-                                     "prompts and enter a valid job to enable the button again if you wish to see"
-                                     "the jobs you have entered.")
+        
     def quit(self):
         root.destroy()
     
@@ -519,7 +507,7 @@ class Enter_Jobs:
 
 if __name__ == "__main__":
     root = Tk()
-    #if the frame is extended the background stays blue
+    #if the frame is extended the background stays blue (stack overflow tip - no noted creator)
     root.config(bg="white")
     root.title("Suzy's Mobile Computer Repairs")
     radiobuttons = Start(root)

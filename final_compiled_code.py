@@ -507,8 +507,8 @@ class Enter_Jobs:
 
 if __name__ == "__main__":
     root = Tk()
-    #if the frame is extended the background stays blue (stack overflow tip - no noted creator)
+    #if the frame is extended the background stays white (stack overflow tip - no noted creator)
     root.config(bg="white")
-    root.title("Suzy's Mobile Computer Repairs")
+    root.title("Suzy's Profesional Mobile Service")
     radiobuttons = Start(root)
     root.mainloop()

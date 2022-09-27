@@ -1,11 +1,20 @@
-# final compiled program v4
+# Suzy's Professional Mobile Service
 # Jessica Allen
+# 11-08-2022
+# Final compiled program (version 4 (final) of compiled program)
+
 from tkinter import *
 from functools import partial # To prevent unwanted windows
 import math
 import tkinter.font as font
 from tkinter import ttk
 
+# Introduces the program, welcomes the user and provides options to quit and to
+# go to the next page to enter a job
+# parameters include self and parent, passing through root from the main routine
+# text, buttons, logo picture (no text or numerical input), however there is a lambda
+# command to send it through the functions to_close and to_input to get to the next class
+# or to close the program.
 class Start:
     def __init__(self, parent):
         background = "#E00014"
@@ -52,7 +61,11 @@ class Start:
         Enter_Jobs(self)
         self.welcome_frame.destroy()
 
-#support class
+#support class --> here the job information, after entry is passed through this class, it saves the customer details in an object list and sends
+#it back to the class in which it was called. AKA, information is passed between classes, from the enter_jobs function within the Enter_Job class to this Job class.
+#this allows the information to be saved/grouped by customer.
+#The data is then sent back into a customer list which is then appended into the jobs list for easy presentation
+#data types include numerical and text
 class Job:
     #used to save the customer details in object list
     def __init__(self, job, name, distance, time, wof, charge):
@@ -63,6 +76,10 @@ class Job:
         self.wof = wof
         self.charge = charge
 
+# Help class that is initiated by pressing the help button, includes a logo, title, text
+# and a dismiss button
+# parameters just include self
+# no input or data types, just an informative window comes up.
 class Help:
     def __init__(self):
 
@@ -115,7 +132,11 @@ class Help:
         self.help_box.destroy()
         
 
-#parent class for program
+# parent class for program, different functions show entry boxes and radio buttons to get input
+# then the enter job button collects all the information, the show all jobs button transfers that
+# information between frames, and then presents it in a slideshow. 
+# initial function, just self and parent as the parameters.
+# data types include numerical and text
 class Enter_Jobs:
 
     def __init__(self, parent):
@@ -227,7 +248,7 @@ class Enter_Jobs:
                                                bg=background, fg=text_colour, font=entry_font)
         self.yes_wof_radiobutton.grid(row=6, column=1, sticky=W, columnspan=1, pady=10, padx=10)
         
-        self.no_wof_radiobutton = Radiobutton(self.entry_frame, variable = self.wof_var, value ="'NO", anchor=E, text="NO",
+        self.no_wof_radiobutton = Radiobutton(self.entry_frame, variable = self.wof_var, value ="NO", anchor=E, text="NO",
                                               bg=background, fg=text_colour, font=entry_font)
         self.no_wof_radiobutton.grid(row=6, column=1, sticky=E, padx=10)
 
@@ -258,7 +279,7 @@ class Enter_Jobs:
         
 
         
-        #summary frame
+        #summary frame, changes to the next section
 
         #Suzys logo image
         self.logo_img_summary = PhotoImage(file = "logo3.png")
@@ -309,6 +330,10 @@ class Enter_Jobs:
             self.next_btn.configure(state = DISABLED)
             self.previous_btn.configure(state = DISABLED)
 
+    #sets and stores the input, whilst also error handling to make sure it is acceptable.
+    #function within the same class so can call the entry box and button input easily so no need to pass through parameters
+    #data types include text, numerical
+    #job_charge function is called.
     def enter_job(self):
 
         #next and previous buttons set to normal if there are more than one customer
@@ -407,7 +432,8 @@ class Enter_Jobs:
             #show all jobs cannot be clicked if the job entry is invalid. 
             self.show_jobs_btn.configure(state = DISABLED)
             
-
+    #uses the button press to get to here, removes the info entry frames and replaces them with the slideshow output frames.
+    #changes the counter, uses it to display information.
     def show_all(self):
             
         #using summary frame
@@ -425,6 +451,7 @@ class Enter_Jobs:
         if self.counter == len(self.jobs)-1:
             self.next_btn.configure(state = DISABLED)
 
+    #sets the job charge and returns the job_charge_formatted variable back to enter jobs to set the job charge to self.charge
     def job_charge(self):
 
         #constant as the fixed rate could change
@@ -454,13 +481,16 @@ class Enter_Jobs:
 
         #using wof
         if self.wof != "NO":
-            SET_CHARGE += WOF_COST
+            SET_CHARGE += WOF_COST            
 
         #formatted job charge to 2 deciaml places for currency
         job_charge_formatted = format(SET_CHARGE, ".2f")
         
         return job_charge_formatted
 
+    #function called to switch the counter to set the previous button on show all jobs frames.
+    #changes / configures the input
+    #counter variable passes through and is returned
     def previous_btn(self):
 
         #going to previous customer in object list
@@ -474,6 +504,8 @@ class Enter_Jobs:
         self.name_output.configure(text = self.jobs[self.counter].name)
         self.job_charge_output.configure(text = self.jobs[self.counter].charge)
 
+    #changes counter and configures the next button and the input to show the user the information for the job number they would like to see.
+    #counter variable passes through and is returned
     def next_btn(self):
 
         #going to next customer in object list
@@ -489,6 +521,7 @@ class Enter_Jobs:
         self.name_output.configure(text = self.jobs[self.counter].name)
         self.job_charge_output.configure(text = self.jobs[self.counter].charge)
 
+    #changes the frames back to the entry items when the button is pressed.
     def back_btn(self):
 
         #frames changed
@@ -497,14 +530,17 @@ class Enter_Jobs:
         self.heading_frame.grid()
         self.button_frame.grid()
 
+    #brings up the help class when the button is pressed/calls the help class
     def help(self):
         get_help = Help()
-        
+
+    #quits the program
     def quit(self):
         root.destroy()
     
         
-
+#main routine where root is set up and passed through to start the program. The program is also names here.
+#root is passed through as a parameter.
 if __name__ == "__main__":
     root = Tk()
     #if the frame is extended the background stays white (stack overflow tip - no noted creator)
